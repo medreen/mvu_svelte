@@ -1,0 +1,187 @@
+**INTRODUCTION TO JAVASCRIPT*
+ 
+Basic building blocks of the web
+-HTML
+-CSS
+-JS
+
+==>JS is a high-level interpreted language used to make web pages interactive or dynamic
+
+--> It runs directly in your browser when linked to a HTML file.
+
+JavaScript does the following:
+1. User-interactivity -> the ability of the webpage to respond to user action.
+(button clicks, animations, form inputs)
+2. Reactivity
+
+Where do we write javascript?
+-Internal Javascript:
+  JavaScript code is written in a script in a HTML file
+   a. in the body section; right above the closing body tag (the recommended way)
+   b. in the head section; 
+
+-External Javascript (BEST WAY TO WRITE JS)
+  Create an external javascript file with a .js extension and then link it to a HTML file using a src (source attribute)
+
+VARIABLES
+--> is a named container or memory space used to store values.
+
+**WAYS OF DECLARING VARIABLES IN JS*
+1. Using let keyword
+**Most common way of declaring a variable*
+ -They can be reassigned
+ e.g let x = 20 // initial value
+        x = 5 // reassignment
+
+2. Using const keyword
+--> Variables cannot be reassigned
+    e.g const name = "Killian" // can't be changed
+
+3. Using var keyword
+**works just like let but is outdated
+
+DATA TYPES AND OUTPUT
+String - represents textual data / characters enclosed in quotations
+Number - represents numeric values - both whole numbers and floating point numbers
+Boolean - represent truth values - True and False
+
+To Output:
+we use console.log() //equilavent to print
+
+Checking for data types
+we use typeof()
+ 
+**JS can run in two environments
+1. In the browser -> client side JS
+2. In the server -> NodeJS
+
+
+**Comments*
+-a way of documenting your code - commented lines are ignored by the interpreter.
+ -> Types of comments
+ 1.Multiline comments -> /* */ a comment that takes more than one line.
+ 2.Single line comments -> // a comment that takes only one line.
+
+ **STRING METHODS AND OPERATIONS*
+ Methods are inbuilt functions that are manipulate data
+
+ 1. Concatenation - joining or combining two strings
+              - Using "+" operator
+              - Using concat() method
+
+ 2. Template literal - a way of embedding or including variables inside string
+              - Using backticks (` `), $(dollar sign), {variable }
+
+ 3. Accessing characters in a string - strings are ordered therefore we can use index.
+    However, we don't have -ve indexing.
+
+ 4. Determine no of characters in a string - .length
+ 5. .slice() - returns the portion or substring of a full string
+        .slice(start, end)
+        slice allows -ve indexing
+
+ 6. toUpperCase() - converts a string to uppercase format
+ 7. toLowerCase() - converts a string to lowercase format
+ 8. .includes() - determines whether a string ends with a specified character or substring is part of a Boolean value
+
+ 9. .startsWith() - checks if a string begins with the specified character or substring
+ 10. endsWith() - checks if a string ends with the specified character or substring.
+  returns a boolean value
+ 
+ 11. indexOf() - returns the first occurrence of a specified character or characters.
+ 12. replace() - replaces specified character(s) withh a new value
+          e.g replace(old_value, new_value)
+ 13. .trim() - removes whitespace from a string
+             - trimLeft() or trimStart()
+             - trimRight() or trimEnd()
+
+ 14. split()
+
+**NUMERIC OPERATIONS*
+1.addition -> +
+2.subtraction -> -
+3.division -> /
+4.multiplication -> *
+5.exponent - **
+6.modulus - %
+7.increment -> ++ (increase by 1)
+8.decrement -> -- (decrease by 1)
+9.toString() - changes a number to a string
+10.toFixed() - rounds off a number to specified decimal places
+11.Math.round() - rounds a number to the nearest integer
+12.Math.floor() - rounds down
+13.Math.ceil() - round up
+
+       **LESSON 2*
+**User Input* 
+  -makes programs interactive and dynamic
+  -In JS we take user input using prompt()
+  -Any data coming from user input is always a string
+
+  **Changing Data Type*
+  1.Strings - Numbers
+  2.Numbers - Strings
+  3.Boolean conversions
+
+1. Type conversion -> manual changing of data from one type to another
+                   -> explicitly done by the programmer
+
+**Convert string to number
+    1. Number() - converts string to number
+    2. parseInt() - converts string to integer
+    3. parseFloat() - converts string to float
+
+    Convert number to string
+    a. String()
+    b. toString()
+
+2. Type coercion - where data is automatically changed from one type to another by the languange / intepreter
+      -> not changed by the programmer
+      -> Polymorphism - operator overloading ->an operator takes more than one form 
+      -> concat -> addition
+
+JS OPERATORS
+ -> Operators are symbols used to perform specific tasks
+ -> We have 4 categories of operators:
+
+ 1.Arithmetic Operators
+ - addition(+)
+ - subtraction(-)
+ - division(/)
+ - multiplication(*)
+ - exponentiation(**)
+ - modulus(%)
+ - increment(++) increases by 1
+ - decrement(--) decreases by 1
+
+ 2.Comparison Operators -- compares values
+ - < -> less than
+ - > -> greater than 
+ - <= -> less than or equal to
+ - >= -> greater then or equal to
+ - == -> equality operator
+ - === -> strict equality operator
+ - !== -> strict inequality operator
+ - != -> inequality operator
+
+ 3.Logical Operators -- assigns values
+  && - Logical and ---> returns true only if both conditions are true
+  || - Logical or ---> returns true if at least one condition is true
+  !  - Logical not --> returns the opposite of a Boolean value
+
+ 4.Assignment Operators - assigns values
+ = (assign)
+ += (add and assign)
+ -= (subtract and assign)
+ *= (multiply and assign)
+ /= (divide and assign)
+ **= (raise to a number assign the number to a value)
+ %= (get remainder and assign)
+ 
+
+
+ 
+
+
+
+

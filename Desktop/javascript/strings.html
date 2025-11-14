@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+</head>
+<body>
+    <div class="container">
+        <p>String Operations</p>
+    </div>
+    
+    <script>
+        //concat()
+        let firstName = 'Jane'
+        let lastName = 'Doe'
+        let fullName = firstName + " " + lastName
+        let fullname2 = firstName.concat(' ', lastName)
+        
+        console.log(fullName)
+        console.log(fullname2)
+
+        //template literals or interpolations
+        console.log(`My first name is ${firstName} and my last name is ${lastName} and my full name is ${fullname2}.`)
+
+        //accessing characters(using indexing)
+        firstIndex = firstName[1]
+        sliceIndex = lastName.slice(0,4)
+        console.log(firstIndex)
+        console.log(sliceIndex)
+
+        //length
+        let sentence = 'My dog died today.'
+        console.log(sentence.length)
+
+        //slice
+        let a = 'abcdef'
+        console.log(a.slice(1,5))
+        console.log(a.slice(3))
+        console.log(a.slice(-4,-2))
+        
+        //uppercase & lowercase
+        let upper = 'JAVASCRIPT IS FUN.'
+        console.log(upper.toLowerCase())
+        console.log(a.toUpperCase())
+
+        //startswith & endswith
+        console.log(sentence.startsWith('My'))
+        console.log(upper.endsWith('.'))
+
+        //index of
+        let value = "hello"
+        console.log(value.indexOf("l"))
+        
+        //replace
+        let upper2 = upper.replace('JAVASCRIPT', 'JS')
+        console.log(upper2)
+
+        //trim 
+        let sent2 = '      I love reading novels.'
+        console.log(sent2.trim())
+        console.log(sent2.length)
+        console.log(sent2.trim().length)
+    </script>
+</body>
+</html>
