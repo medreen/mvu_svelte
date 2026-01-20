@@ -70,7 +70,7 @@ export const Department = () => {
             return api.generateObject(response.rows[0])
         },
 		delete: async (id: number): Promise<void> => {
-            await PostgreSQL().query('delete from data.department where department_id = $1' [id])
+            await PostgreSQL().query('delete from data.department where department_id = $1', [id])
         }
 	};
 	return api;
