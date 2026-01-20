@@ -1,0 +1,59 @@
+psycopg2 - is a postreSQL adapter used to connect python to a postres database
+
+Terms of importance
+*internet - interconnection of computers / global network of connected devices.
+*www - worldwide web --> a service that connects users to the internet via the browser.
+*hosting - uploading application files to a server so that it can be visible to others online
+
+
+1.build your application
+2.send your files to a server
+3.ip address is assigned to the application
+ 
+**ip address -> a number that is used to uniquely identify a device on a network e.g 170.100.03.80 **ipv4**
+(various categories depending on the network)
+
+domain name - a user friendly name attached to an ip address to enable users access applications e.g www.google.com / www.netflix.com
+
+
+developer uploads app files to a server
+that server has an ip address
+to access the app hosted on the server, we use the server ip address -> 170.100.02.80
+
+**DNS - domain name system - the internets phone-book used to translate domain names into ip addresses.
+
+127.0.0.1 -> ip address of your device
+localhost -> domain name
+
+host -> local host (your domain name)
+port -> where exactly in my device id the database located
+user & password - authentication
+
+User Applications / Hardware <--->  Drivers <----> OS (Kernel)
+                                (Keyboard driver)
+                                (Bluetooth driver)
+
+     (Python code) <=========> (DB-API Interface) <========> Driver(Psycopg2) <======> DB(Postgres)    
+
+**PSYCOPG2**
+A PostgreSQL adapter (driver) used to connect Python to a Postres database
+
+C create --> insert
+R Read - select
+U Update - 
+D Delete
+
+con.commit() - updates the database with the new state
+---> add 5 products
+
+**TASK*
+1.Brush up on:
+--> sql queries, joins, where etc
+--> python functions, data types, type conversion, loops, if statements, lists and tuples
+
+2.research on another method apart from f-string that would be used to add products dynamically
+----<hint: use %5>
+
+3.create two functions to:
+ -> insert 2 sales using psycopg2 --> insert sales()
+ -> view my sales using psycopg2 --> get_sales
