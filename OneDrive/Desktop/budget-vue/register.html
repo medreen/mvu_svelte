@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.3.7/css/dataTables.bootstrap5.min.css"
+    />
+  </head>
+  <body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">ShopYetu</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="register.html"
+                >Register</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Budgets</a>
+            </li>
+            <!-- <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- form -->
+    <div class="container" id="register">
+      <span
+        ><i
+          v-if="loader"
+          class="fa-solid fa-spinner fa-spin-pulse"
+          style="color: rgb(116, 192, 252)"
+        ></i
+      ></span>
+      <form @submit.prevent="authenticateUser">
+        <div class="mb-3">
+          <label for="exampleInputName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputName"
+            v-model="username"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail"
+            v-model="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword"
+            v-model="password"
+          />
+        </div>
+        <!-- Submit -->
+        <button v-if="!loader" type="submit" class="btn btn-primary">
+          Submit
+        </button>
+        <button v-if="loader" type="submit" class="btn btn-primary disabled">
+          Submit
+        </button>
+      </form>
+
+      <div v-if="alertSuccessShow" class="alert alert-success" role="alert">
+        <span>{{ alertMessagem }}</span>
+      </div>
+      <div v-if="alertErrorShow" class="alert alert-danger" role="alert">
+        <span>{{ alertMessagem }}</span>
+      </div>
+
+    <!-- jQuery (required by DataTables) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"
+      integrity="sha512-OKuL2kpi8zfeXcqSXnGbL6tKc9JxWmppJY4mOSn1EsngRb7fx1N5+7wOTGqu2bI5OAYL3Og7/Beg7EsWG2OBKA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Bootstrap JS -->
+
+    <!-- DataTables JS + Bootstrap 5 integration -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.min.js"
+      integrity="sha512-Wx8niGbPNCD87mSuF0sBRytwW2+2ZFr7HwVDF8krCb3egstCc4oQfig+/cfg2OHd82KcUlOYxlSDAqdHqK5TCw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+      integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.js"
+      integrity="sha512-+dJa1RvuE8/HFftifMtr7hqixdEkb/DizfXUZAA0pyZeVdNnyZyKy9RnIWi0JSWUznbCNbaQNn0E6nbtrdL+9g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      new Vue({
+        el: "#register",
+        data: {
+          username: "",
+          email: "",
+          password: "",
+          alertMessagem: "",
+          alertSuccessShow: false,
+          alertErrorShow: false,
+          loader: false              
+        },
+
+        methods: {
+          authenticateUser() {
+            if (this.username == "" || this.email == "" || this.password == "") {
+              this.alertErrorShow = true;
+              this.alertSuccessShow = false;
+              this.alertMessagem = "All fields are required.";
+              return;
+            }
+
+            this.loader = true;
+
+            axios
+              .post("http://127.0.0.1:5000/register", {
+                username: this.username,
+                email: this.email,
+                password: this.password
+              })
+              .then((response) => {
+                this.alertErrorShow = false;
+                this.alertSuccessShow = true;
+                this.alertMessagem = "User added successfully.";
+                console.log(response.data.token)
+                // WE WILL STORE THE TOKEN IN THE BROWSER LOCAL STORAGE FOR INDEX.HTML & others TO USE.
+                localStorage.setItem("token", response.data.token) 
+                window.location.href = "index.html" 
+              })
+              .catch((error) => {
+                this.alertErrorShow = true;
+                this.alertSuccessShow = false;
+                this.alertMessagem = "Something went wrong.";
+              })
+              .finally(() => {
+                this.loader = false;
+              });
+          },         
+        },
+        mounted(){
+          if (localStorage.getItem("token") != null){
+            window.location.href = "login.html"
+          }
+        }       
+      });
+    </script>
+  </body>
+</html>
